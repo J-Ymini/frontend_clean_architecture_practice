@@ -1,8 +1,5 @@
-import { Product } from './product';
-
-export type Cart = {
-  products: Product[];
-};
+import { Product } from '../product/types';
+import { Cart } from './types';
 
 export class CartDomain {
   readonly cart: Cart;

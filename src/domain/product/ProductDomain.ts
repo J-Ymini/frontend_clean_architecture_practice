@@ -1,11 +1,4 @@
-export type ProductTitle = string;
-
-export type Product = {
-  id: UniqueId;
-  title: ProductTitle;
-  price: PriceCents;
-  toppings: Ingredient[];
-};
+import { Product } from './types';
 
 export class ProductDomain {
   getTotalPrice(products: Product[]): PriceCents {

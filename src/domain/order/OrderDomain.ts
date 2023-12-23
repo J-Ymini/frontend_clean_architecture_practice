@@ -1,16 +1,7 @@
-import { Cart } from './cart';
-import { ProductDomain } from './product';
-import { User } from './user';
-
-export type OrderStatus = 'new' | 'delivery' | 'completed';
-
-export type Order = {
-  user: UniqueId;
-  cart: Cart;
-  created: DateTimeString;
-  status: OrderStatus;
-  total: PriceCents;
-};
+import { Cart } from '../cart/types';
+import { ProductDomain } from '../product/ProductDomain';
+import { User } from '../user/types';
+import { Order } from './types';
 
 export class OrderDomain extends ProductDomain {
   readonly cart: Cart;
