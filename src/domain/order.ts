@@ -1,5 +1,5 @@
 import { Cart } from './cart';
-import { totalPrice } from './product';
+import { ProductDomain } from './product';
 import { User } from './user';
 
 export type OrderStatus = 'new' | 'delivery' | 'completed';
@@ -12,14 +12,23 @@ export type Order = {
   total: PriceCents;
 };
 
-export const createOrder = (user: User, cart: Cart): Order => {
-  const result: Order = {
-    user: user.id,
-    cart,
-    created: new Date().toISOString(),
-    status: 'new',
-    total: totalPrice(cart.products),
-  };
+export class OrderDomain extends ProductDomain {
+  readonly cart: Cart;
 
-  return result;
-};
+  constructor(cart: Cart) {
+    super();
+    this.cart = cart;
+  }
+
+  createOrder(user: User, cart: Cart): Order {
+    const result: Order = {
+      user: user.id,
+      cart,
+      created: new Date().toISOString(),
+      status: 'new',
+      total: super.getTotalPrice(cart.products),
+    };
+
+    return result;
+  }
+}

@@ -7,8 +7,10 @@ export type Product = {
   toppings: Ingredient[];
 };
 
-export const totalPrice = (products: Product[]): PriceCents => {
-  const result = products.reduce((total, { price }) => total + price, 0);
+export class ProductDomain {
+  getTotalPrice(products: Product[]): PriceCents {
+    const result = products.reduce((total, { price }) => total + price, 0);
 
-  return result;
-};
+    return result;
+  }
+}

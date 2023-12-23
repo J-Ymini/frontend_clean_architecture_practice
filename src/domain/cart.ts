@@ -4,14 +4,25 @@ export type Cart = {
   products: Product[];
 };
 
-export const addProduct = (cart: Cart, product: Product): Cart => {
-  const result = { ...cart, products: [...cart.products, product] };
+export class CartDomain {
+  readonly cart: Cart;
 
-  return result;
-};
+  constructor(cart: Cart) {
+    this.cart = cart;
+  }
 
-export const contains = (cart: Cart, product: Product): boolean => {
-  const result = cart.products.some(({ id }) => id === product.id);
+  addProduct(product: Product): Cart {
+    const result = {
+      ...this.cart,
+      products: [...this.cart.products, product],
+    };
 
-  return result;
-};
+    return result;
+  }
+
+  hasProduct(product: Product): boolean {
+    const result = this.cart.products.some(({ id }) => id === product.id);
+
+    return result;
+  }
+}

@@ -8,14 +8,22 @@ export type User = {
   allergies: Ingredient[];
 };
 
-export const hasAllergy = (user: User, ingredient: Ingredient): boolean => {
-  const result = user.allergies.includes(ingredient);
+export class UserDomain {
+  readonly user: User;
 
-  return result;
-};
+  constructor(user: User) {
+    this.user = user;
+  }
 
-export const hasPreference = (user: User, ingredient: Ingredient): boolean => {
-  const result = user.preferences.includes(ingredient);
+  hasAllergy(ingredient: Ingredient): boolean {
+    const result = this.user.allergies.includes(ingredient);
 
-  return result;
-};
+    return result;
+  }
+
+  hasPreference(ingredient: Ingredient): boolean {
+    const result = this.user.preferences.includes(ingredient);
+
+    return result;
+  }
+}
