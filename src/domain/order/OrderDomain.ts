@@ -11,13 +11,13 @@ export class OrderDomain extends ProductDomain {
     this.cart = cart;
   }
 
-  createOrder(user: User, cart: Cart): Order {
+  createOrder(user: User): Order {
     const result: Order = {
       user: user.id,
-      cart,
+      cart: this.cart,
       created: new Date().toISOString(),
       status: 'new',
-      total: super.getTotalPrice(cart.products),
+      total: super.getTotalPrice(this.cart.products),
     };
 
     return result;

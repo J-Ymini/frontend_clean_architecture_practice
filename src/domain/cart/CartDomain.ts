@@ -17,6 +17,17 @@ export class CartDomain {
     return result;
   }
 
+  removeProduct(product: Product): Cart {
+    const result = {
+      ...this.cart,
+      products: this.cart.products.filter(
+        (previous) => previous.id !== product.id
+      ),
+    };
+
+    return result;
+  }
+
   hasProduct(product: Product): boolean {
     const result = this.cart.products.some(({ id }) => id === product.id);
 
