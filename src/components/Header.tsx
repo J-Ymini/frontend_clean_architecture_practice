@@ -1,8 +1,8 @@
 import {
   useCartStorage,
   useUserStorage,
-} from '@/services/storage/storageAdaptor';
-import Link from 'next/link';
+} from "@/services/storage/storageAdaptor";
+import Link from "next/link";
 
 const Header = () => {
   const { user } = useUserStorage();

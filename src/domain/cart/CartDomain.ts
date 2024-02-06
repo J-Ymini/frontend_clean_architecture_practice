@@ -1,5 +1,5 @@
-import { Product } from '../product/types';
-import { Cart } from './types';
+import { Product } from "../product/types";
+import { Cart } from "./types";
 
 export class CartDomain {
   readonly cart: Cart;
