@@ -12,8 +12,11 @@ export function Toppings({ cookie }: ToppingsProps) {
   const { user } = useUserStorage();
   const { hasAllergy, hasPreference } = new UserDomain(user as User);
 
+  console.log(!!user && hasPreference("peanuts"));
+
   return (
     <ul>
+      toppings
       {cookie.toppings.map((topping) => (
         <li key={topping}>
           {ingredients[topping]}

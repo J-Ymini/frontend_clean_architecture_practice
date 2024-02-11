@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { Orders } from "../../components/Orders";
 import { Cart } from "@/components/Cart";
+import { Buy } from "@/components/Buy";
 
 const User = () => {
   const { user } = useUserStorage();
@@ -21,6 +22,7 @@ const User = () => {
       <Profile />
       <Orders />
       <Cart />
+      <Buy />
     </main>
   );
 };

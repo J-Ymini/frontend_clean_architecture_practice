@@ -19,18 +19,19 @@ export function Cookie({ cookie }: CookieProps) {
   const { hasProduct } = new CartDomain(cart as Cart);
 
   return (
-    <article>
+    <div className="border grid grid-cols-3">
       <span>🍪</span>
       <span>{cookie.title}</span>
       <Toppings cookie={cookie} />
 
       {!!user && (
-        <button type="button" onClick={() => addToCart(cookie)}>
-          {cookie.price / 100} ₽
-        </button>
+        <>
+          <button type="button" onClick={() => addToCart(cookie)}>
+            {cookie.price / 100} ₽
+          </button>
+          {cookie && hasProduct(cookie) && <span>In your cart</span>}
+        </>
       )}
-
-      {hasProduct(cookie) && <span>In your cart</span>}
-    </article>
+    </div>
   );
 }

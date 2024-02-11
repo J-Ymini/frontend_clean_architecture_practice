@@ -1,4 +1,4 @@
-import { useStore } from '@/services/context/store';
+import { useStore } from "@/services/context/store";
 
 export const useUserStorage = () => {
   const { user, updateUser } = useStore();
@@ -16,4 +16,10 @@ export const useOrdersStorage = () => {
   const { orders, updateOrders } = useStore();
 
   return { orders, updateOrders };
+};
+
+export const useCookieStorage = () => {
+  const { cookies } = useStore();
+
+  return { cookies };
 };

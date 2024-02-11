@@ -29,6 +29,10 @@ export class CartDomain {
   }
 
   hasProduct(product: Product): boolean {
+    if (!this) {
+      return false;
+    }
+
     const result = this.cart.products.some(({ id }) => id === product.id);
 
     return result;

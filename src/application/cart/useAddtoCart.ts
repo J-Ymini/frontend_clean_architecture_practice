@@ -19,6 +19,7 @@ const useAddToCart = () => {
 
   const addToCart = (product: Product) => {
     const warning = "This cookie is dangerous to your health! 😱";
+
     const isDangerous = product.toppings.some((item) =>
       userDomain.hasAllergy(item)
     );
